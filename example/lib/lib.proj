@@ -1,0 +1,7 @@
+lib adder
+{
+    include include
+
+    header include/adder.h
+    source src/adder.cpp
+}

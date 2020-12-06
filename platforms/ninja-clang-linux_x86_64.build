@@ -1,0 +1,7 @@
+#define CC clang
+#define CXX clang++
+#define CFLAGS -Wall -O3 -m64
+#define CXXFLAGS -Wall -O3 -m64
+#define AR ar
+
+#include "ninja.inc"

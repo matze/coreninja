@@ -1,0 +1,25 @@
+cc = clang
+cflags = -Wall -O3 -m64
+cxx = clang++
+cxxflags = -Wall -O3 -m64
+ar = ar
+
+rule cxx
+  depfile = $out.d
+  command = $cxx -MD -MF $out.d $cxxflags -c $in -o $out
+
+rule link_binary
+  command = $cxx $in -o $out
+
+rule ar
+  command = $ar rcs $out $in
+
+build release/ninja-clang-linux_x86_64/example/bin/src/main.cpp.o: cxx example/bin/src/main.cpp
+ cxxflags = $cxxflags -Iexample/lib/include
+
+build release/ninja-clang-linux_x86_64/test: link_binary release/ninja-clang-linux_x86_64/example/bin/src/main.cpp.o release/ninja-clang-linux_x86_64/libadder.a
+
+build release/ninja-clang-linux_x86_64/example/lib/src/adder.cpp.o: cxx example/lib/src/adder.cpp
+  cxxflags = $cxxflags -Iexample/lib/include
+
+build release/ninja-clang-linux_x86_64/libadder.a: ar release/ninja-clang-linux_x86_64/example/lib/src/adder.cpp.o

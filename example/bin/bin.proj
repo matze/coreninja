@@ -1,0 +1,6 @@
+con test
+{
+    use adder
+
+    source src/main.cpp
+}
