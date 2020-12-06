@@ -1,0 +1,7 @@
+dll sub
+{
+    include include
+
+    header include/sub.h
+    source src/sub.cpp
+}

@@ -1,7 +1,8 @@
 #include <cstdio>
 #include "adder.h"
+#include "sub.h"
 
 int main()
 {
-    printf("1 + 2 = %d\n", foo::add(1, 2));
+    printf("(1 + 2) - 3 = %d\n", bar::sub(foo::add(1, 2), 3));
 }

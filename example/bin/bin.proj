@@ -1,6 +1,7 @@
 con test
 {
     use adder
+    use sub
 
     source src/main.cpp
 }
